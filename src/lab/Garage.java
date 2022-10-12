@@ -7,20 +7,44 @@ public class Garage {
     String Address;
     String OwnerFullName;
     LocalDate StartDate;
-    int CountBefore;
-    int CountNow;
-    int Price;
-    LocalDate PayDate;
 
-    public Garage(int number, String address, String ownerFullName, LocalDate startDate, int countBefore, int countNow, int price, LocalDate payDate) {
+    public Garage(int number, String address, String ownerFullName, LocalDate startDate) {
         Number = number;
         Address = address;
         OwnerFullName = ownerFullName;
         StartDate = startDate;
-        CountBefore = countBefore;
-        CountNow = countNow;
-        Price = price;
-        PayDate = payDate;
+    }
+
+    public int getNumber() {
+        return Number;
+    }
+
+    public void setNumber(int number) {
+        Number = number;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getOwnerFullName() {
+        return OwnerFullName;
+    }
+
+    public void setOwnerFullName(String ownerFullName) {
+        OwnerFullName = ownerFullName;
+    }
+
+    public LocalDate getStartDate() {
+        return StartDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        StartDate = startDate;
     }
 }
 
