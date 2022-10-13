@@ -1,38 +1,47 @@
 package lab;
-import org.apache.commons.csv.*;
-import java.io.*;
-import java.nio.charset.Charset;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+    private final static  String SAMPLE_CSV_FILE_PATH = "./SourceData.csv";
     public static void main(String[] args) throws IOException {
-        /*List<Garage> GarageList = new ArrayList<Garage>();
-        List<Electricity> ElectricityList= new ArrayList<Electricity>();*/
-        String SAMPLE_CSV_FILE_PATH = "./SourceData.csv";
+
+        List<Garage> GarageList = CreateGaragesCollection(SAMPLE_CSV_FILE_PATH);//created garages collection
+        System.out.println(GarageList.toString());
+
+        }
+
+    public static List<Garage> CreateGaragesCollection(String path) throws IOException {
+        List<Garage> GarageList = new ArrayList<Garage>();
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
-                CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)
+                CSVParser csvParser = new CSVParser(reader,  CSVFormat.DEFAULT
+                        .withDelimiter(';')
+                        .withFirstRecordAsHeader()
+                        .withIgnoreHeaderCase()
+                        .withTrim())
         ) {
             for (CSVRecord csvRecord : csvParser) {
                 // Accessing Values by Column Index
-                String name = csvRecord.get(0);
-                String email = csvRecord.get(1);
-                String phone = csvRecord.get(2);
-                String country = csvRecord.get(3);
-
-                System.out.println("Record No - " + csvRecord.getRecordNumber());
-                System.out.println("---------------");
-                System.out.println("Name : " + name);
-                System.out.println("Email : " + email);
-                System.out.println("Phone : " + phone);
-                System.out.println("Country : " + country);
-                System.out.println("---------------\n\n");
+                String Number = csvRecord.get("Number");
+                String Address = csvRecord.get("Address");
+                String OwnerFullName = csvRecord.get("OwnerFullName");
+                String StartDate = csvRecord.get("StartDate");
+                Garage garage = new Garage(Integer.parseInt(Number),Address,OwnerFullName,StartDate);
+                GarageList.add(garage);
             }
 
-            }
         }
+        return GarageList;
+    }//returning collection of garages
+    public static List<Electricity> CreateElectricityCollection(String path) throws IOException{
+        return null;
+    }
     }

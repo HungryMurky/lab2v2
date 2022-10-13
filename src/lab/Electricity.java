@@ -1,8 +1,10 @@
 package lab;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Electricity {
+    final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
     String Address;
     String OwnerFullName;
     int Number;
@@ -11,14 +13,14 @@ public class Electricity {
     int Price;
     LocalDate PayDate;
 
-    public Electricity(String address, String ownerFullName, int number, int countBefore, int countNow, int price, LocalDate payDate) {
+    public Electricity(String address, String ownerFullName, int number, int countBefore, int countNow, int price, String payDate) {
         Address = address;
         OwnerFullName = ownerFullName;
         Number = number;
         CountBefore = countBefore;
         CountNow = countNow;
         Price = price;
-        PayDate = payDate;
+        PayDate = LocalDate.parse(payDate,formatter);
     }
 
     public String getAddress() {

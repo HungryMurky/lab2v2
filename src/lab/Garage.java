@@ -1,18 +1,20 @@
 package lab;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Garage {
+    final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
     int Number;
     String Address;
     String OwnerFullName;
     LocalDate StartDate;
 
-    public Garage(int number, String address, String ownerFullName, LocalDate startDate) {
+    public Garage(int number, String address, String ownerFullName, String startDate) {
         Number = number;
         Address = address;
         OwnerFullName = ownerFullName;
-        StartDate = startDate;
+        StartDate = LocalDate.parse(startDate,formatter);
     }
 
     public int getNumber() {
@@ -43,8 +45,17 @@ public class Garage {
         return StartDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        StartDate = startDate;
+    public void setStartDate(String startDate) {
+        StartDate = LocalDate.parse(startDate);
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Number=" + Number +
+                ", Address='" + Address + '\'' +
+                ", OwnerFullName='" + OwnerFullName + '\'' +
+                ", StartDate=" + StartDate;
     }
 }
 

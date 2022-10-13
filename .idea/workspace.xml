@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0598a2c6-fab5-437a-bfe9-a79e7a3d3415" name="Changes" comment="Variables and Constructors/Getters/Setters for Garage and Electricity&#10;classes">
-      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_csv_1_9_0_sources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="0598a2c6-fab5-437a-bfe9-a79e7a3d3415" name="Changes" comment="apache common csv">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2v2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab2v2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/SourceData.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab/Electricity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab/Electricity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab/Garage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab/Garage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lab/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,12 +45,6 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="opencsv-5.7.0.jar" type="JarApplication">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/opencsv-5.7.0.jar" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665586381891</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="apache common csv">
+      <created>1665618182760</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665618182760</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,7 +108,8 @@
     <MESSAGE value="added needed Classes" />
     <MESSAGE value="created variables for Garage class" />
     <MESSAGE value="Variables and Constructors/Getters/Setters for Garage and Electricity&#10;classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Variables and Constructors/Getters/Setters for Garage and Electricity&#10;classes" />
+    <MESSAGE value="apache common csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="apache common csv" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/lab2v2$Main.ic" NAME="Main Coverage Results" MODIFIED="1665590710072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
