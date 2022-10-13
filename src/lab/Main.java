@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.security.KeyStore;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -77,9 +76,9 @@ public class Main {
         }
 
     public static List<Garage> CreateGaragesCollection(String path) throws IOException {
-        List<Garage> GarageList = new ArrayList<Garage>();
+        List<Garage> GarageList = new ArrayList<>();
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
+                Reader reader = Files.newBufferedReader(Paths.get(path));
                 CSVParser csvParser = new CSVParser(reader,  CSVFormat.DEFAULT
                         .withDelimiter(';')
                         .withFirstRecordAsHeader()
@@ -100,9 +99,9 @@ public class Main {
         return GarageList;
     }//returning collection of garages
     public static List<Electricity> CreateElectricityCollection(String path) throws IOException{
-        List<Electricity> ElectricityList = new ArrayList<Electricity>();
+        List<Electricity> ElectricityList = new ArrayList<>();
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
+                Reader reader = Files.newBufferedReader(Paths.get(path));
                 CSVParser csvParser = new CSVParser(reader,  CSVFormat.DEFAULT
                         .withDelimiter(';')
                         .withFirstRecordAsHeader()
