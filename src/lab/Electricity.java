@@ -78,4 +78,16 @@ public class Electricity {
     public void setPayDate(LocalDate payDate) {
         PayDate = payDate;
     }
+
+    @Override
+    public String toString() {
+        return
+                "Адрес кооператива'" + Address + '\'' +
+                ", ФИО'" + OwnerFullName + '\'' +
+                ", Номер'" + Number + '\'' +
+                ", Предыдущее показание счетчика'" + CountBefore +'\'' +
+                ", Текущее показание счетчика'" + CountNow +'\'' +
+                ", Стоимость за единицу'" + Price +'\'' +
+                ", Дата уплаты'" + PayDate + '\'' ;
+    }
 }
