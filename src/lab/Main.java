@@ -18,8 +18,9 @@ public class Main {
 
         List<Garage> GarageList = CreateGaragesCollection(SAMPLE_CSV_FILE_PATH);//created garages collection
         List<Electricity> ElectricityList = CreateElectricityCollection(SAMPLE_CSV_FILE_PATH);
-        //System.out.println(GarageList);
-        //System.out.println(ElectricityList);
+        System.out.println("Коллекция объектов класса Гараж" + GarageList);
+        System.out.println("Коллекция объектов класса Электроэнергия"+ ElectricityList);
+        System.out.println();
         System.out.println("Список владельцев с расходом более чем 200 в алфавитном порядке:");
          ElectricityList.stream()
                  .filter(e-> e.CountNow-e.CountBefore>200)
@@ -28,10 +29,22 @@ public class Main {
                          " Предыдущее показание счетчика:" +e.CountBefore+
                          " Текущеее показание счетчика:"+e.CountNow +
                          " Расход:" +(e.CountNow-e.CountBefore)));
+
+        System.out.println();
         System.out.println("Вывод списка адресов без повторений:");
          ElectricityList.parallelStream()
                  .filter(distinctByKey(Electricity::getAddress))
                  .forEach(e->System.out.println(e.getAddress()));
+
+        System.out.println();
+        Scanner inp = new Scanner(System.in);
+        System.out.println("Введите адрес кооператива");
+        String address = inp.nextLine();
+        System.out.println("Вывод списка владельцев гаражей заданного гаражного кооператива ("+address+") с указанием даты вступления в кооператив.");
+         GarageList.stream()
+                 .filter(e->Objects.equals(e.getAddress(), address))
+                 .forEach(e->System.out.println(e.getOwnerFullName()+" "+ e.getStartDate()));
+
         }
 
     public static List<Garage> CreateGaragesCollection(String path) throws IOException {

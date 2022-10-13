@@ -51,11 +51,11 @@ public class Garage {
 
     @Override
     public String toString() {
-        return
-                "Number=" + Number +
-                ", Address='" + Address + '\'' +
-                ", OwnerFullName='" + OwnerFullName + '\'' +
-                ", StartDate=" + StartDate;
+        return  "("+
+                "Номер гаража=" + Number +
+                ", Адрес кооператива='" + Address + '\'' +
+                ", ФИО ='" + OwnerFullName + '\'' +
+                ", Дата вступления в кооператив=" + StartDate + ")";
     }
 }
 

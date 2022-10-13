@@ -81,13 +81,13 @@ public class Electricity {
 
     @Override
     public String toString() {
-        return
+        return  "("+
                 "Адрес кооператива'" + Address + '\'' +
                 ", ФИО'" + OwnerFullName + '\'' +
                 ", Номер'" + Number + '\'' +
                 ", Предыдущее показание счетчика'" + CountBefore +'\'' +
                 ", Текущее показание счетчика'" + CountNow +'\'' +
                 ", Стоимость за единицу'" + Price +'\'' +
-                ", Дата уплаты'" + PayDate + '\'' ;
+                ", Дата уплаты'" + PayDate + '\'' +")";
     }
 }
