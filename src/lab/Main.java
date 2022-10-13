@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class Main {
@@ -27,8 +27,11 @@ public class Main {
                  .forEach(e->System.out.println("Владелец:"+e.OwnerFullName+
                          " Предыдущее показание счетчика:" +e.CountBefore+
                          " Текущеее показание счетчика:"+e.CountNow +
-                         " Расход за месяц:" +(e.CountNow-e.CountBefore)));
-
+                         " Расход:" +(e.CountNow-e.CountBefore)));
+        System.out.println("Вывод списка адресов без повторений:");
+         ElectricityList.parallelStream()
+                 .filter(distinctByKey(Electricity::getAddress))
+                 .forEach(e->System.out.println(e.getAddress()));
         }
 
     public static List<Garage> CreateGaragesCollection(String path) throws IOException {
@@ -83,4 +86,8 @@ public class Main {
         }
         return ElectricityList;
     }//returning collection of electricity
+    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Set<Object> seen = ConcurrentHashMap.newKeySet();
+        return t -> seen.add(keyExtractor.apply(t));
+    }
     }
